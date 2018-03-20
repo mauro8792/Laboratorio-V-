@@ -5,58 +5,42 @@ package tp1hilos;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author mauro
  */
 public class BeerHouse {
+
     private int stock;
     private boolean contenedorLleno = Boolean.FALSE;
-    
-    public synchronized int get(){
-        while (!contenedorLleno){
-            try{
-                wait();
-               }
-            catch (InterruptedException e){
-                System.err.println("Contenedor Error en get ->"+ e.getMessage());
-                
-            }
-        }
-        contenedorLleno = Boolean.FALSE;
-        notify();
-        return stock;
-    }
-    
-    public synchronized void put (int value){
-        while (contenedorLleno){
+
+    public synchronized int get() {
+        while (!contenedorLleno) {
             try {
                 wait();
             } catch (InterruptedException e) {
-                System.err.println("Contenedor Error en put->"+ e.getMessage());
-                
-            }
-            stock=value;
-            contenedorLleno=Boolean.TRUE;
-            notify();
-        }
-    }
-    
-    
-    
-    public BeerHouse(int stock){
-        this.setStock(stock);
-    }
+                System.err.println("Contenedor Error en get ->" + e.getMessage());
 
-    public int getStock() {
+            }
+        }
+        contenedorLleno = Boolean.FALSE;
+        notifyAll();
         return stock;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public synchronized void put(int value) {
+        while (contenedorLleno) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.err.println("Contenedor Error en put->" + e.getMessage());
+
+            }
+        }
+           // stock += value;
+            stock = value;
+            contenedorLleno = Boolean.TRUE;
+            notifyAll();
+        
     }
-    
-    
-            
 }

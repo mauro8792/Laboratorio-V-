@@ -13,10 +13,11 @@ import java.util.Random;
  * @author mauro
  */
 public class BeerProducter implements Runnable {
-    private Random aleatorio;
-    private BeerHouse stock;
-    private int idProductor;
+    private final Random aleatorio;
+    private final BeerHouse stock;
+    private final int idProductor;
     private final int tiempoEspera=1500;
+    // list de cerveza, 
     
      public BeerProducter(BeerHouse stock, int idProductor) {
          this.stock=stock;
@@ -25,36 +26,12 @@ public class BeerProducter implements Runnable {
                 
     }
 
-    public Random getAleatorio() {
-        return aleatorio;
-    }
-
-    public void setAleatorio(Random aleatorio) {
-        this.aleatorio = aleatorio;
-    }
-
-    public BeerHouse getStock() {
-        return stock;
-    }
-
-    public void setStock(BeerHouse stock) {
-        this.stock = stock;
-    }
-
-    public int getIdProductor() {
-        return idProductor;
-    }
-
-    public void setIdProductor(int idProductor) {
-        this.idProductor = idProductor;
-    }
-
     @Override
     public void run() {
         while(Boolean.TRUE){
             int poner = aleatorio.nextInt(100);
             stock.put(poner);
-            System.out.println("El BeerProducter "+ idProductor + "pone"+poner);
+            System.out.println("El BeerProducter "+ idProductor + " pone "+poner);
             try
             {
                 Thread.sleep(tiempoEspera);

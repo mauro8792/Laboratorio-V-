@@ -13,7 +13,7 @@ public class Tp1Hilos {
     private static BeerHouse stock;
     private static Thread productor;
     private static Thread[] consumidores;
-    private static final int cantidadConsumidores = 2;
+    private static final int cantidadConsumidores = 85;
     
     /**
      * @param args the command line arguments
@@ -30,6 +30,7 @@ public class Tp1Hilos {
         }
          
         productor.start();
+        
         
         
     }

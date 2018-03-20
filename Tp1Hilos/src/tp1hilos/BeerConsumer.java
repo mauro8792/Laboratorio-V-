@@ -11,32 +11,14 @@ package tp1hilos;
  * @author mauro
  */
 public class BeerConsumer implements Runnable{
-    private BeerHouse stock;
-    private int idConsumidor;
+    private final BeerHouse stock;
+    private final int idConsumidor;
     
     public BeerConsumer(BeerHouse stock, int idConsumidor){
             this.stock= stock;
             this.idConsumidor = idConsumidor;
       }
     
-          
-     
-
-    public BeerHouse getStock() {
-        return stock;
-    }
-
-    public void setStock(BeerHouse stock) {
-        this.stock = stock;
-    }
-
-    public int getIdConsumidor() {
-        return idConsumidor;
-    }
-
-    public void setIdConsumidor(int idConsumidor) {
-        this.idConsumidor = idConsumidor;
-    }
 
     @Override
     public void run() {

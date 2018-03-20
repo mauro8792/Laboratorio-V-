@@ -15,7 +15,7 @@ import java.util.List;
 public class ListaDeEmpleados {
     List<Empleado> list = new ArrayList<>();
     
-    Empleado personal= new Temporal();
+   
      
     
    

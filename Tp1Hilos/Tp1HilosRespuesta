@@ -1,0 +1,24 @@
+Cuantos consumidores se necesitan para que el stock llegue a 0:
+
+Segun mi programa lo que se produce es lo que se consume, pero esta mal.
+Por que habria solo un consumidor o un arreglo de consumidores en el 
+que lo estas obligando a cada consumidor a que gaste el stock por cada consumo.
+
+
+Bloques synchronized porque deben serlos?:
+
+Nos ayuda a indicar que tenemos una seccion critica del codigo, y asi los Thread podran
+ingresar de forma sincrona.
+
+Explica el recurso compartido:
+
+El recurso compartido es BeerHouse.
+
+explicar las 3 formas de instancian um Thread:
+
+La primer forma esque la clase extienda de la clase Thread, y en cada clase
+que la extienda hacer la funcion Run() y en el main llamar al objeto que se
+haya creado con ese Thread y poner x.run(); . La segunda
+es que implemente la interface Runnable, creando la funcion run() en cada clase
+que la implemente, y en el main al Thread creado poner x.start. Y en  y por 
+ultimo en la clase main hacer un new Thread e implementar el metodo run.

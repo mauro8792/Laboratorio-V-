@@ -29,9 +29,11 @@ public class Auto extends Observable{
     }
 
     public void setNivelAceite(String nivelAceite) {
+        String viejo=(" Aceite New: "+this.getNivelAceite());
         this.nivelAceite = nivelAceite;
         setChanged();
-        notifyObservers();
+       // notifyObservers();
+        notifyObservers(viejo);
     }
 
     public float getPresionNeumaticos() {
@@ -39,9 +41,12 @@ public class Auto extends Observable{
     }
 
     public void setPresionNeumaticos(float presionNeumaticos) {
+        String viejo =(" Presion New: "+this.getPresionNeumaticos());
         this.presionNeumaticos = presionNeumaticos;
         setChanged();
-        notifyObservers();
+       // notifyObservers();
+        notifyObservers(viejo);
+        
     }
 
     public String getNivelAgua() {
@@ -49,15 +54,18 @@ public class Auto extends Observable{
     }
 
     public void setNivelAgua(String nivelAgua) {
+        String viejo =(" Agua New: "+this.getNivelAgua());
         this.nivelAgua = nivelAgua;
         setChanged();
-        notifyObservers();
+        //notifyObservers();
+        notifyObservers(viejo);
+
         
     }
     
     public String toSTring(){
-        String mensaje= "Aceite: "+ getNivelAceite()+
-                        " Presion: "+ getPresionNeumaticos()+
+        String mensaje= "Aceite: "+ getNivelAceite()+","+
+                        " Presion: "+ getPresionNeumaticos()+","+
                         " Agua: "+getNivelAgua();
         return mensaje;
     }

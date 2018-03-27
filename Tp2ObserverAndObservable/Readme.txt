@@ -19,4 +19,4 @@ En el momento que se ejecuta este metodo es cuando
 se ejecuta el método " notifyObservers(); "
  u "notifyObservers(arg);". 
 Y los argumentos que se pasan son un Observable que es donde se produjo el evento 
-y un Object a modo de arguemnto que el objeto observable envia.
+y un Object a modo de arguemnto que el objeto observable envia. y

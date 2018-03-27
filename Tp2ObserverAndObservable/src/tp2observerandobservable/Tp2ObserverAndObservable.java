@@ -24,6 +24,7 @@ public class Tp2ObserverAndObservable {
             fiat.setNivelAceite("alto");
             fiat.setPresionNeumaticos(20);
             fiat.setNivelAgua("bajo");
+            fiat.setPresionNeumaticos(30);
             
         
            

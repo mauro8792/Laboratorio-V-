@@ -52,7 +52,7 @@ public class Auto extends Observable{
         this.nivelAgua = nivelAgua;
         setChanged();
         notifyObservers();
-        //notifyObservers(System.out.println("Nuevo Mensaje: "+this.getNivelAgua()));
+        
     }
     
     public String toSTring(){

@@ -18,7 +18,7 @@ public class Mecanico implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-       System.out.println("Nuevo Mensaje: "+ ((Auto)o).toSTring());
+       System.out.println( " Viejo dato: " +  arg + " [ Nueva Actualizacion: "+ "("+ ((Auto)o).toSTring()+")]");
     }
     
 }

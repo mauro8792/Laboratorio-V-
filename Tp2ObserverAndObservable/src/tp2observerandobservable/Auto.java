@@ -29,7 +29,7 @@ public class Auto extends Observable{
     }
 
     public void setNivelAceite(String nivelAceite) {
-        String viejo=(" Aceite New: "+this.getNivelAceite());
+        String viejo=this.getNivelAceite();
         this.nivelAceite = nivelAceite;
         setChanged();
        // notifyObservers();
@@ -41,7 +41,7 @@ public class Auto extends Observable{
     }
 
     public void setPresionNeumaticos(float presionNeumaticos) {
-        String viejo =(" Presion New: "+this.getPresionNeumaticos());
+        int viejo =(int) this.getPresionNeumaticos();
         this.presionNeumaticos = presionNeumaticos;
         setChanged();
        // notifyObservers();
@@ -54,7 +54,7 @@ public class Auto extends Observable{
     }
 
     public void setNivelAgua(String nivelAgua) {
-        String viejo =(" Agua New: "+this.getNivelAgua());
+        String viejo =this.getNivelAgua();
         this.nivelAgua = nivelAgua;
         setChanged();
         //notifyObservers();

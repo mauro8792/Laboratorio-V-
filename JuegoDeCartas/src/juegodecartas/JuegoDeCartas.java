@@ -5,6 +5,8 @@
  */
 package juegodecartas;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mauro
@@ -15,7 +17,15 @@ public class JuegoDeCartas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(new Jugador("Pedro"));
+        jugadores.add(new Jugador("Lara"));
+        jugadores.add(new Jugador("Oscar"));
+        jugadores.add(new Jugador("Pepe"));
+
+        Simulador simulador = new Simulador(jugadores);
+
+        simulador.simularPartido();
     }
     
 }

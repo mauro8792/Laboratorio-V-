@@ -50,7 +50,7 @@ public class Partido {
         }
         return false;
     }
-    
+
     private void identificarGanadorVuelta(Ronda vuelta) {
         Jugador ganador = jugadores.get(0);
         for (int i = 1; i < jugadores.size(); i++) {
@@ -61,8 +61,45 @@ public class Partido {
                 ganador = jugador;
             }
         }
-        ganador.sumarUnPunto();
+        ganador.sumarPunto();
         vuelta.setGanadorDeVuelta(ganador);
     }
 
+    public Ronda jugarUnaVuelta() {
+        Ronda vuelta = new Ronda();
+
+        for (Jugador jugador : jugadores) {
+            if (baraja.quedanCartas()) {
+                Carta carta = baraja.desapilarCarta();
+                jugador.setCarta(carta);
+                    vuelta.agregarMano(jugador, carta);
+            } else {
+                baraja.deUsadaAMazo();
+                Carta carta = baraja.desapilarCarta();
+                jugador.setCarta(carta);
+                vuelta.agregarMano(jugador, carta);
+            }
+        }
+
+        identificarGanadorVuelta(vuelta);
+        rondas.add(vuelta);
+
+        for (Jugador jugador : jugadores) {
+            baraja.agregarCartaUsada(jugador.getCarta());
+        }
+        return vuelta;
+    }
+    
+    public Jugador getGanador() {
+        if (partidoTerminado()) {
+            for (Jugador jugador : jugadores) {
+                if (jugador.getPuntos() == 10) {
+                    return jugador;
+                }
+            }
+        }
+        return null;
+    }
+   
+  
 }

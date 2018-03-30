@@ -34,7 +34,7 @@ public class Carta {
 
     public void setPalo(String palo) {
         this.palo = palo;
-    }
+    } 
      public int compareTo(Carta otra) {
         /*
             Utilizo un HashMap como herramienta para establecer una jerarquia

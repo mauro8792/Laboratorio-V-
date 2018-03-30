@@ -67,19 +67,20 @@ public class Partido {
 
     public Ronda jugarUnaVuelta() {
         Ronda vuelta = new Ronda();
-
-        for (Jugador jugador : jugadores) {
-            if (baraja.quedanCartas()) {
-                Carta carta = baraja.desapilarCarta();
-                jugador.setCarta(carta);
+       
+            for (Jugador jugador : jugadores) {
+                if (baraja.quedanCartas()) {
+                    Carta carta = baraja.desapilarCarta();
+                    jugador.setCarta(carta);
+                        vuelta.agregarMano(jugador, carta);
+                } else {
+                    baraja.deUsadaAMazo();
+                    Carta carta = baraja.desapilarCarta();
+                    jugador.setCarta(carta);
                     vuelta.agregarMano(jugador, carta);
-            } else {
-                baraja.deUsadaAMazo();
-                Carta carta = baraja.desapilarCarta();
-                jugador.setCarta(carta);
-                vuelta.agregarMano(jugador, carta);
+                }
             }
-        }
+        
 
         identificarGanadorVuelta(vuelta);
         rondas.add(vuelta);

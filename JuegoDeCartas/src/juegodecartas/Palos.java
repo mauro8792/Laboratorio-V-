@@ -11,7 +11,7 @@ package juegodecartas;
  */
 public class Palos {
     public static String Espada = "Espada";
-    public static String Oro= "Oro";
-    public static String Basto= "Basto";
-    public static String Copa = "Copa";
+    public static String Oro = "Oro";
+    public static String Basto = "Basto";
+    public static String Copa  = "Copa";
 }

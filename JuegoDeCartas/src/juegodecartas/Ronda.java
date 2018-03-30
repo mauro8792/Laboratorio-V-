@@ -6,12 +6,13 @@
 package juegodecartas;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 /**
  *
  * @author mauro
  */
-public class Ronda {
+public class Ronda extends Observable{
     private final HashMap<Jugador,Carta> ronda = new HashMap<>();
     private Jugador ganadorDeVuelta = new Jugador();
     

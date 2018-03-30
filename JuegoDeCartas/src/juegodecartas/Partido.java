@@ -16,7 +16,8 @@ public class Partido {
     private ArrayList<Jugador> jugadores = new ArrayList<>();
     private ArrayList<Ronda> rondas = new ArrayList<>();
     private Baraja baraja;
-
+    
+    
     public Partido(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
         this.baraja = new Baraja();
@@ -36,6 +37,7 @@ public class Partido {
 
     public void setRondas(ArrayList<Ronda> rondas) {
         this.rondas = rondas;
+        
     }
 
     public void agregarJugadores(Jugador A) {
@@ -67,7 +69,7 @@ public class Partido {
 
     public Ronda jugarUnaVuelta() {
         Ronda vuelta = new Ronda();
-       
+        
             for (Jugador jugador : jugadores) {
                 if (baraja.quedanCartas()) {
                     Carta carta = baraja.desapilarCarta();

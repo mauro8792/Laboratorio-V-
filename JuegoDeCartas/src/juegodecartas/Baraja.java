@@ -24,10 +24,10 @@ public final class Baraja {
     public void inicializar(){
         String[] palos = new String[4];
         
-        palos[1]=Palos.Basto;
-        palos[2]=Palos.Copa;
-        palos[3]=Palos.Espada;
-        palos[4]=Palos.Oro;
+        palos[0]=Palos.Basto;
+        palos[1]=Palos.Copa;
+        palos[2]=Palos.Espada;
+        palos[3]=Palos.Oro;
         
         for(String palo : palos){
             
@@ -46,7 +46,7 @@ public final class Baraja {
         this.cartasUsadas.add(carta);
     }
     public Boolean quedanCartas(){
-        return  this.mazo.empty();            
+        return  !this.mazo.empty();            
     }
     
     public Carta desapilarCarta(){

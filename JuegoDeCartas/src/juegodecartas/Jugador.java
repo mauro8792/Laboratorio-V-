@@ -14,7 +14,7 @@ public class Jugador {
     private int puntos;
     private Carta carta;
     
-    public Jugador(String nombre, int puntos, Carta carta) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
     }
 

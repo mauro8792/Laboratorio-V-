@@ -12,6 +12,7 @@ import java.util.HashMap;
  * @author mauro
  */
 public class Carta {
+
     private int numero;
     private String palo;
 
@@ -34,8 +35,9 @@ public class Carta {
 
     public void setPalo(String palo) {
         this.palo = palo;
-    } 
-     public int compareTo(Carta otra) {
+    }
+
+    public int compareTo(Carta otra) {
         /*
             Utilizo un HashMap como herramienta para establecer una jerarquia
             entre los diferentes palos. Asignando como valor clave el nombre del palo,
@@ -68,4 +70,13 @@ public class Carta {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Carta{"
+                + "palo='" + palo + '\''
+                + ", numero=" + numero
+                + '}';
+    }
+
 }

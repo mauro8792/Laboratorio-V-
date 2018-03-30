@@ -16,7 +16,7 @@ import java.util.Stack;
 public final class Baraja {
     private final ArrayList<Carta> cartasUsadas = new  ArrayList<>();
     private final Stack<Carta> mazo = new Stack<>();
-
+    
     public Baraja() {
         this.inicializar();
     }
@@ -31,7 +31,7 @@ public final class Baraja {
         
         for(String palo : palos){
             
-            for(int i=0; i<13 ; i++){
+            for(int i=1; i<13 ; i++){
                 this.mazo.add(new Carta(i, palo));
             }
         }
@@ -46,9 +46,12 @@ public final class Baraja {
         this.cartasUsadas.add(carta);
     }
     public Boolean quedanCartas(){
-        return  !this.mazo.empty();            
+        return  !this.mazo.empty(); 
+        
     }
-    
+    public int sizeMazo(){
+        return this.mazo.size();
+    }
     public Carta desapilarCarta(){
         return this.mazo.pop();
     }

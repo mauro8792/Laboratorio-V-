@@ -5,11 +5,13 @@
  */
 package juegodecartas;
 
+import java.util.Observable;
+
 /**
  *
  * @author mauro
  */
-public class Jugador {
+public class Jugador extends Observable{
     private String  nombre;
     private int puntos;
     private Carta carta;
@@ -28,6 +30,8 @@ public class Jugador {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+        setChanged();
+        notifyObservers();
     }
 
     public int getPuntos() {
@@ -36,6 +40,8 @@ public class Jugador {
 
     public void setPuntos(int puntos) {
         this.puntos = puntos;
+        setChanged();
+        notifyObservers();
     }
 
     public Carta getCarta() {
@@ -44,12 +50,20 @@ public class Jugador {
 
     public void setCarta(Carta carta) {
         this.carta = carta;
+        setChanged();
+        notifyObservers();
     }
 
    public void sumarPunto(){
        this.puntos= this.puntos+1;
    }
     
+   public String toSTring(){
+        String mensaje= "Nombre: "+ getNombre()+","+
+                        " Puntos: "+ getPuntos()+","+
+                        " Carta: "+getCarta();
+        return mensaje;
+    }
    
     
     

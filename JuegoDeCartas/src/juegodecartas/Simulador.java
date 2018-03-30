@@ -35,13 +35,15 @@ public class Simulador {
     }
 
     public void imprimirVuelta(Ronda vuelta) {
-        System.out.println("========\n\nVuelta: ");
-        for (Jugador jugador : getPartido().getJugadores()) {
+       // System.out.println("========\n\nVuelta: ");
+        /*for (Jugador jugador : getPartido().getJugadores()) {
             System.out.println(" Jugador: " + jugador.getNombre());
             System.out.println(" " + vuelta.verCartaDelJugador(jugador));
-        }
+        }*/
         System.out.println("\nEl ganador de la vuelta es: " + vuelta.getGanadorDeVuelta().getNombre() + " tiene " + vuelta.getGanadorDeVuelta().getPuntos() + " puntos.");
         System.out.println("Con la siguiente " + vuelta.getGanadorDeVuelta().getCarta());
+        System.out.println(" ");
+        System.out.println("========\n\nVuelta: ");
     }
 
     public void imprimirPuntajes(Partido partido) {

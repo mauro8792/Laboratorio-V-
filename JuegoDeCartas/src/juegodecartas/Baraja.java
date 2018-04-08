@@ -15,7 +15,7 @@ import java.util.Stack;
  */
 public final class Baraja {
     private final ArrayList<Carta> cartasUsadas = new  ArrayList<>();
-    private final Stack<Carta> mazo = new Stack<>();
+    protected final Stack<Carta> mazo = new Stack<>();
     
     public Baraja() {
         this.inicializar();
@@ -52,7 +52,7 @@ public final class Baraja {
     public int sizeMazo(){
         return this.mazo.size();
     }
-    public Carta desapilarCarta(){
+    public synchronized Carta desapilarCarta(){
         return this.mazo.pop();
     }
     

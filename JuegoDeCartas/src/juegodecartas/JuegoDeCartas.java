@@ -19,36 +19,32 @@ public class JuegoDeCartas {
     public static void main(String[] args) {
         ArrayList<Jugador> jugadores = new ArrayList<>();
         Referi Elizondo = new Referi();
+        Baraja mazo= new Baraja();
         
-        Jugador Pedro = new Jugador("Pedro");
+        
+        Jugador Pedro = new Jugador("Pedro",mazo);
         Pedro.addObserver(Elizondo);
         
-        Jugador Lara = new Jugador("Lara");
+        Jugador Lara = new Jugador("Lara",mazo);
         Lara.addObserver(Elizondo);
         
-        Jugador German = new Jugador("German");
+        Jugador German = new Jugador("German",mazo);
         German.addObserver(Elizondo);
         
-        Jugador Gustavo = new Jugador("Gustavo");
+        Jugador Gustavo = new Jugador("Gustavo",mazo);
         Gustavo.addObserver(Elizondo);
         
-        //jugadores.add(new Jugador("Lara"));
-        //jugadores.add(new Jugador("Oscar"));
-        //jugadores.add(new Jugador("Pepe"));     
-        //jugadores.add(new Jugador("Pedro"));
+        Pedro.run();
+        Lara.run();
+        German.run();
+        Gustavo.run();
         
         jugadores.add(Pedro);
         jugadores.add(Lara);
         jugadores.add(German);
         jugadores.add(Gustavo);
         
-        
-        
-        
-                
-
         Simulador simulador = new Simulador(jugadores);
-
         simulador.simularPartido();
     }
     

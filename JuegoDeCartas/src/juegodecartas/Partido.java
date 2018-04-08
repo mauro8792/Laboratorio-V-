@@ -5,6 +5,9 @@
  */
 package juegodecartas;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,9 +18,8 @@ public class Partido {
 
     private ArrayList<Jugador> jugadores = new ArrayList<>();
     private ArrayList<Ronda> rondas = new ArrayList<>();
-    private Baraja baraja;
-    
-    
+    public Baraja baraja;
+
     public Partido(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
         this.baraja = new Baraja();
@@ -37,7 +39,7 @@ public class Partido {
 
     public void setRondas(ArrayList<Ronda> rondas) {
         this.rondas = rondas;
-        
+
     }
 
     public void agregarJugadores(Jugador A) {
@@ -64,26 +66,41 @@ public class Partido {
             }
         }
         ganador.sumarPunto();
+        this.updatePuntajePorVuelta(ganador);
+
         vuelta.setGanadorDeVuelta(ganador);
+    }
+
+    public void updatePuntajePorVuelta(Jugador ganador) {
+        Conectar cc = new Conectar();
+        Connection cn = cc.conexion();
+        String sql = "";
+        int puntos = ganador.getPuntos();
+
+        try {
+            PreparedStatement pps = cn.prepareStatement("UPDATE Jugadores SET puntaje='" + ganador.getPuntos() + "' WHERE  id_jugador='" + ganador.getId() + "'");
+            pps.executeUpdate();
+        }catch(SQLException ex){
+            System.out.println("Hubo un error");
+        }
     }
 
     public Ronda jugarUnaVuelta() {
         Ronda vuelta = new Ronda();
-        
-            for (Jugador jugador : jugadores) {
-                if (baraja.quedanCartas()) {
-                    Carta carta = baraja.desapilarCarta();
-                    jugador.setCarta(carta);
-                        vuelta.agregarMano(jugador, carta);
-                } else {
-                    baraja.deUsadaAMazo();
-                    Carta carta = baraja.desapilarCarta();
-                    jugador.setCarta(carta);
-                    vuelta.agregarMano(jugador, carta);
-                }
-            }
-        
 
+        for (Jugador jugador : jugadores) {
+            if (baraja.quedanCartas()) {
+                Carta carta = baraja.desapilarCarta();
+                jugador.setCarta(carta);
+                vuelta.agregarMano(jugador, carta);
+            } else {
+                baraja.deUsadaAMazo();
+                Carta carta = baraja.desapilarCarta();
+                jugador.setCarta(carta);
+                vuelta.agregarMano(jugador, carta);
+            }
+        }
+        
         identificarGanadorVuelta(vuelta);
         rondas.add(vuelta);
 
@@ -92,17 +109,17 @@ public class Partido {
         }
         return vuelta;
     }
-    
+
     public Jugador getGanador() {
         if (partidoTerminado()) {
             for (Jugador jugador : jugadores) {
                 if (jugador.getPuntos() == 10) {
+
                     return jugador;
                 }
             }
         }
         return null;
     }
-   
-  
+
 }

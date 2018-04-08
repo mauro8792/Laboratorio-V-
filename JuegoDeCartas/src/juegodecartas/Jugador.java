@@ -7,24 +7,44 @@ package juegodecartas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Observable;
 
 /**
  *
  * @author mauro
  */
-public final class Jugador extends Observable {
-
+public final class Jugador  extends Observable implements Runnable{
+    private int id;
     private String nombre;
     private int puntos;
     private Carta carta;
+    private Baraja mazo;
 
-    public Jugador(String nombre) {
+    public Jugador(String nombre, Baraja mazo) {
         this.nombre = nombre;
+        this.mazo= mazo;
         insertJugador(nombre);
     }
 
+    Jugador() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+/*
+    Jugador(String nombre, Simulador simulador) {
+        this.nombre = nombre;
+        //this.mazo=simulador.getPartido().baraja;
+    }
+*/
     public void insertJugador(String nombre) {
         Conectar cc = new Conectar();
         Connection cn = cc.conexion();
@@ -32,24 +52,29 @@ public final class Jugador extends Observable {
         nombre = this.getNombre();
        
         sql = "Insert into Jugadores (nombre)" + "values(?)";
-        System.out.println("hola wacho");
         PreparedStatement pst;
+       
         try {
-            pst = cn.prepareStatement(sql);
+            pst = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, nombre);
-            System.out.println("ppp");
             int n = pst.executeUpdate();
             if (n > 0) {
-                System.out.println("Jugador cargado");
+                
+                ResultSet generatedKeys = pst.getGeneratedKeys();
+
+                if (generatedKeys.next()) {
+                    this.id = (int) generatedKeys.getLong(1);
+                }
+                else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+                
+                System.out.println("Jugador cargado con ID " + this.id);
             }
-        } catch (SQLException ex) {
+                   
+        } catch (Exception ex) {
             System.out.println("No se pudo cargar "+ex);
         }
-
-    }
-
-    Jugador() {
-
     }
 
     public String getNombre() {
@@ -91,6 +116,14 @@ public final class Jugador extends Observable {
                 + " Puntos: " + getPuntos() + ","
                 + " Carta: " + getCarta();
         return mensaje;
+    }
+
+    @Override
+    public void run() {
+        
+        if (mazo.quedanCartas()){
+            this.setCarta(mazo.desapilarCarta());            
+        }
     }
 
 }

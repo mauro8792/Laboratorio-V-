@@ -56,7 +56,7 @@ public class Carta {
         //Si tienen el mismo palo
         if (miCarta == otraCarta) {
             //Entonces comparo por numero.
-            if (this.getNumero() < otra.getNumero()) {
+            if (this.getNumero() > otra.getNumero()) {
                 return 1;
             } else {
                 return -1;

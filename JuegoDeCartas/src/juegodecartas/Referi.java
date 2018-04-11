@@ -16,7 +16,7 @@ public class Referi implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("Nueva Ronda: "+ ""+ ((Jugador)o).toSTring()+"");
+        System.out.println("Nueva Ronda: "+ ""+ ((Jugador)o).toSTring());
     }
     
 }

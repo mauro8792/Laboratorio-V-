@@ -33,16 +33,17 @@ public class JuegoDeCartas {
         
         Jugador Gustavo = new Jugador("Gustavo",mazo);
         Gustavo.addObserver(Elizondo);
-        
-        Pedro.run();
-        Lara.run();
-        German.run();
-        Gustavo.run();
-        
+      
         jugadores.add(Pedro);
         jugadores.add(Lara);
         jugadores.add(German);
         jugadores.add(Gustavo);
+        
+          
+        Pedro.run();
+        Lara.run();
+        German.run();
+        Gustavo.run();
         
         Simulador simulador = new Simulador(jugadores);
         simulador.simularPartido();

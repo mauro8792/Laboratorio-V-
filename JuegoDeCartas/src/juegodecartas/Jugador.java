@@ -69,7 +69,7 @@ public final class Jugador  extends Observable implements Runnable{
                     throw new SQLException("Creating user failed, no ID obtained.");
                 }
                 
-                System.out.println("Jugador cargado con ID " + this.id);
+                System.out.println("Jugador: "+ this.nombre+ " cargado con ID: " + this.id);
             }
                    
         } catch (Exception ex) {
@@ -121,9 +121,9 @@ public final class Jugador  extends Observable implements Runnable{
     @Override
     public void run() {
         
-        if (mazo.quedanCartas()){
+        
             this.setCarta(mazo.desapilarCarta());            
-        }
+        
     }
 
 }

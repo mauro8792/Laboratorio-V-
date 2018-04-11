@@ -1,0 +1,22 @@
+* Para la persistencia se eligio Mysql con el siguiente Script:
+
+create DATABASE JuegoDeCartas;
+
+use JuegoDeCartas;	
+
+create table if not EXISTS Partido(
+	id_Partido int AUTO_INCREMENT primary key,
+	ganador varchar(50)
+	);
+
+create  table  IF NOT EXISTS Jugadores (
+	id_jugador int  AUTO_INCREMENT primary key,
+	nombre varchar(40),
+	puntaje int,
+	fk_id_Partido int,
+	foreign key (fk_id_Partido) references Partido(id_Partido)
+	);
+  
+* El juego consiste en que hay "x" cantidad de jugadores, en el cual se le reparte por cada mano una carta al jugador. En dicha mano
+se evalua la carta que tiene cada jugador. Siendo el palo mas alto Espada, seguidos por, Oro, Basto y Copa. Y gana el jugador que llega
+primero a diez puntos.

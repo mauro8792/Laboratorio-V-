@@ -1,0 +1,10 @@
+/* borde blanco en los thumbs de nuestras franquicias */
+.franquicias .mini img {border: 1px; border-color: #a0a0a0; border-style: solid;}
+
+/* cambio fondos */
+body.fabrica, body.delivery {
+    background: #000 url("../images/bg-ladrillo.jpg") repeat scroll 0 0 !important;
+}
+
+/* archicamos el franquicias dentro de obtene tu... */ 
+.obtene-tu-franquicia article div.onerow div.col12 h1 span {font-size: 85%;}

@@ -1,0 +1,8 @@
+@font-face{
+	font-family: freestyle script;
+	src: url(ROOT . 'Vistas/css/fonts/freestyle script.ttf') ;
+}
+
+h2{
+	font-family: freestyle script;
+}

@@ -1,0 +1,47 @@
+jQuery(document).ready(function($){
+    console.log("js loaded");	
+	$("#menu-btn").click(function(){
+		$(".responsive-menu").css('transform','translateX(0%)');
+		$(".cd-overlay").addClass('is-visible');
+	});
+	$(".cd-close-nav").click(function(){
+		$(".responsive-menu").css('transform','translateX(100%)');
+      $(".cd-overlay").removeClass('is-visible');
+	});
+	
+	//initialize swiper when document ready  
+    var mySwiper = new Swiper ('.s1', {
+      // Optional parameters
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      loop: true,
+      scrollbar: '.swiper-scrollbar',
+      scrollbarHide: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      autoplay: 5000,
+      autoplayDisableOnInteraction: true
+    });
+    
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper ('.s2', {
+      // Optional parameters
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      loop: true,
+      scrollbar: '.swiper-scrollbar',
+      scrollbarHide: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      autoplay: 5000,
+      autoplayDisableOnInteraction: true
+    });
+    
+    $('.local-galeria').click(function() {
+				var myid = this.id;
+            $('#'+myid+'-image-1').trigger('click');
+     });
+
+    $('.beer').stickem();
+
+});

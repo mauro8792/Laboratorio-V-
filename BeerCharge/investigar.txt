@@ -1,0 +1,7 @@
+Facebook
+http://www.comolohago.cl/como-hacer-un-ingreso-de-usuarios-via-facebook-para-tu-sitio-web/
+https://www.elserver.com/facebook-login-javascript/
+
+Google Maps
+https://es.stackoverflow.com/questions/102564/obtener-datos-de-json-generados-por-google-maps-de-manera-dinamica
+https://www.datoweb.com/post/2823/obtener-coordenadas-de-una-direccion-para-google-maps-con-php

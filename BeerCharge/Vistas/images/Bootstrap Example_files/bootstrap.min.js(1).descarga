@@ -1,0 +1,6 @@
+﻿
+
+
+
+<br />
+<b>Warning</b>:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Controladora\loginControlador' does not have a method 'Vistas' in <b>C:\xampp\htdocs\BeerCharge\Config\Router.php</b> on line <b>20</b><br />

@@ -120,10 +120,7 @@ public final class Jugador  extends Observable implements Runnable{
 
     @Override
     public void run() {
-        
-        
-            this.setCarta(mazo.desapilarCarta());            
-        
+        this.setCarta(mazo.desapilarCarta());            
     }
 
 }

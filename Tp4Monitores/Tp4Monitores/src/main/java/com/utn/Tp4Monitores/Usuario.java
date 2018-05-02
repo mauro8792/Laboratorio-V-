@@ -13,9 +13,9 @@ import javax.persistence.Id;
 public class Usuario {
     @Id
     @GeneratedValue
-
     private Long id;
     private String nameBrowser;
     private String nameSo;
+
 
 }

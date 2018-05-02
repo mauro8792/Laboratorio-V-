@@ -32,14 +32,18 @@ public class UsuarioControlador {
         return pasado;
     }
 
-    @RequestMapping(value = "/browserUsados", method = RequestMethod.GET, produces = "application/json")
-    public int masUsados (@RequestHeader("User-Agent") String ua){
-
-        ArrayList browsers = new ArrayList();
-        for (int =0; int i)
-
-
+    @GetMapping("Browser")
+    public List<?> browserUsados (){
+       return bd.getMostUsed();
+    }
+    @GetMapping("SistemOperative")
+    public List<?> soUsados (){
+        return bd.getMostUsedSo();
     }
 
+    @GetMapping("BrowserAndSo")
+    public List<?> combinadoSoAndBrowser (){
+        return bd.getMostUsedSoAndBrowser();
+    }
 
 }
